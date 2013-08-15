@@ -1,0 +1,31 @@
+!!! 5
+html(lang="en")
+  head
+    title MeYou
+  body
+    - if (typeof(flash) != 'undefined')
+      p= flash
+
+    h2 Register
+    form(method='post', action='/register')
+      label Create nickname:
+        input(name='nickname', type='text')
+      br
+      label Password:
+        input(name='password', type='password')
+      br
+      label Confirm Password:
+        input(name='confirm_password', type='password')
+      br
+
+      button(type='submit') Join MeYou
+      
+    h2 Login
+    form(method='post', action='/login')
+      label Nickname:
+        input(name='nickname', type='text')
+      br
+      label Password:
+        input(name='password', type='password')
+      br
+      button(type='submit') Login

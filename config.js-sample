@@ -1,0 +1,7 @@
+var config = {};
+
+config.express_secret = "secret";
+config.mongodb_pass = "pass";
+config.smtp_pass = "pass";
+
+module.exports = config;

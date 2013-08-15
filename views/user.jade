@@ -1,0 +1,37 @@
+!!! 5
+html(lang="en")
+  head
+    title Welcome
+        - if (typeof(user) != 'undefined')
+        | , #{user} - MeYou
+  body
+
+    - if (typeof(user) != 'undefined')
+      h2  Messages for: #{user}
+    
+    - if (messages.length)
+        ul
+        - messages.forEach(function(message){
+            li 
+                b #{message.message} 
+                | from 
+                i #{message.sender}
+        - })
+
+    h2 Send a message
+    form(method='post', action='/save')
+      label Receipient nickname
+        input(name='receipient', type='text')
+      br
+      label Message
+        input(name='message', type='text')
+      br
+      input(name='sender', value='#{user}', type='hidden') 
+      br
+      button(type='submit') Send message
+
+   
+      
+    h2 Logout
+    form(method='post', action='/logout')
+        button(type='submit') Logout
